@@ -13,7 +13,6 @@
     {{ end }}
     {{ with .Params.ext }}
         <h4><a href="{{ $.Params.ext }}" target="_blank" rel="noopener noreferrer">{{ $.Title }}</a></h4>
-        <h5>Hello</h5>
     {{ else }}
     {{ with .Params.link }} {{ $.Scratch.Set "link" . }} {{ end }}
 
