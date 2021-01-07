@@ -11,6 +11,10 @@
             {{ printf "https://bitbucket.org/%s/%s/" $.Site.Params.bitbucketUsername . | $.Scratch.Set "link" }}
         {{ end }}
     {{ end }}
+    {{ with .Params.ext }}
+        <h4><a href="{{ $.Params.ext }}" target="_blank" rel="noopener noreferrer">{{ $.Title }}</a></h4>
+        <h5>Hello</h5>
+    {{ else }}
     {{ with .Params.link }} {{ $.Scratch.Set "link" . }} {{ end }}
 
     {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") | $.Scratch.Set "subheader" }}
@@ -18,6 +22,6 @@
 
     <h4><a href="{{ .Scratch.Get "link" }}">{{ .Title }}</a></h4>
     <h5>{{ $.Scratch.Get "subheader" }}</h5>
+    {{ end }}
     {{ partial "tags" . }}
-
 </div>
